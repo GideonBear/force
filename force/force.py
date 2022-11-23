@@ -16,7 +16,7 @@ class Force:
         return cls(0, 0)
 
     def __str__(self):
-        return f'Force of size {self.size} and at {self.direction} degrees angle'
+        return f'Force of size {self.size:.2f} and at {self.direction:.2f} degrees angle'
 
 
 def add_force(a: Force, b: Force) -> Force:
