@@ -1,9 +1,8 @@
-import turtle
 from collections.abc import Sequence
 from functools import reduce
 from math import dist
 from turtle import goto as _goto, seth, forward, left, backward, right, penup, pendown, pencolor, \
-    pos, exitonclick, hideturtle, colormode
+    pos, exitonclick, hideturtle, colormode, heading, speed as tspeed
 
 from .color import FORCE, CALC, RES, RESRES
 from .force import Force
@@ -70,12 +69,16 @@ def draw_force(force: Force) -> None:
 
 
 def draw_arrowh(size: float = 20, angle: float = 45) -> None:
-    left(angle)
+    turn(-angle)
     backward(size)
     forward(size)
-    right(angle * 2)
+    turn(angle * 2)
     backward(size)
     forward(size)
+
+
+def turn(angle: float) -> None:
+    seth(heading() + angle)
 
 
 def goto_force(force: Force) -> None:
@@ -92,10 +95,10 @@ def goto(x: float, y: float) -> None:
 
 def setup(speed: float, gpp: bool, gpp_size: float) -> None:
     colormode(255)
-    turtle.speed(0)
+    tspeed(0)
     if gpp:
         draw_gpp(gpp_size)
-    turtle.speed(speed)
+    tspeed(speed)
 
 
 def shutdown() -> None:
