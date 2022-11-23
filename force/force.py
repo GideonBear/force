@@ -7,6 +7,9 @@ class Force:
     direction: float
     poe: tuple[float, float] = 0, 0
 
+    def __post_init__(self):
+        assert self.size > 0, 'size should be more than 0'
+
     @classmethod
     def zero(cls):
         return cls(0, 0)
