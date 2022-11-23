@@ -8,8 +8,8 @@ class Force:
     poe: tuple[float, float] = 0, 0
 
     def __post_init__(self):
-        if self.size > 0:
-            raise ValueError('Size should be more than 0')
+        if self.size < 0:
+            raise ValueError('Size should not be negative')
 
     @classmethod
     def zero(cls):
