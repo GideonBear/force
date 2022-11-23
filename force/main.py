@@ -28,6 +28,7 @@ def parse_args():
     parser.add_argument(
         '-f', '--force',
         action='append',
+        required=True,
         nargs=2, metavar=('size', 'direction'),
         type=float
     )
