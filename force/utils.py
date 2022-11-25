@@ -4,7 +4,7 @@ from math import atan2, degrees
 Point = tuple[float, float]
 
 
-def all_equal(iterable):
+def all_equal(iterable) -> bool:
     iterator = iter(iterable)
     try:
         first = next(iterator)
