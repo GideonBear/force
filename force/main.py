@@ -1,4 +1,4 @@
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 from functools import reduce
 
 from . import draw
@@ -21,7 +21,7 @@ def main():
         draw.shutdown()
 
 
-def parse_args():
+def parse_args() -> Namespace:
     parser = ArgumentParser('force')
 
     parser.add_argument(
