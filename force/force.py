@@ -7,7 +7,7 @@ class Force:
     direction: float
     poe: tuple[float, float] = 0, 0
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         if self.size < 0:
             raise ValueError('Size should not be negative')
 
