@@ -2,7 +2,7 @@ from collections.abc import Sequence
 from functools import reduce
 from math import dist
 from turtle import goto as _goto, seth, forward, left, backward, right, penup, pendown, pencolor, \
-    pos, exitonclick, hideturtle, colormode, heading, speed as tspeed
+    pos, exitonclick, hideturtle, colormode, heading, speed as tspeed, width
 
 from .color import FORCE, CALC, RES, RESRES
 from .force import Force
@@ -93,7 +93,8 @@ def goto(x: float, y: float) -> None:
     pendown()
 
 
-def setup(speed: float, gpp: bool, gpp_size: float) -> None:
+def setup(speed: float, gpp: bool, gpp_size: float, thickness: float) -> None:
+    width(thickness)
     colormode(255)
     tspeed(0)
     if gpp:

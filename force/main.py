@@ -1,9 +1,8 @@
 from argparse import ArgumentParser
 from functools import reduce
-from turtle import exitonclick
 
-from .force import Force, add_force
 from . import draw
+from .force import Force, add_force
 
 
 def main():
@@ -13,7 +12,7 @@ def main():
         res = reduce(add_force, forces)
         print(res)
     else:
-        draw.setup(args.speed, args.gpp, args.gpp_size)
+        draw.setup(args.speed, args.gpp, args.gpp_size, args.thickness)
         if args.draw == 'par':
             res = draw.par(forces)
         else:
@@ -46,6 +45,11 @@ def parse_args():
         '-s', '--speed',
         type=float,
         default=6
+    )
+    parser.add_argument(
+        '-t', '--thickness',
+        type=float,
+        default=1
     )
     parser.add_argument(
         '-g', '--gpp',
