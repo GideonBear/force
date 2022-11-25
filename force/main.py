@@ -5,7 +5,7 @@ from . import draw
 from .force import Force, add_force
 
 
-def main():
+def main() -> None:
     args = parse_args()
     forces = [Force(*force) for force in args.force]
     if args.calculate:
