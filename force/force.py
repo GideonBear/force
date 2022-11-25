@@ -11,10 +11,6 @@ class Force:
         if self.size < 0:
             raise ValueError('Size should not be negative')
 
-    @classmethod
-    def zero(cls):
-        return cls(0, 0)
-
     def __str__(self):
         return f'Force of size {self.size:.2f} and at {self.direction:.2f} degrees angle'
 
