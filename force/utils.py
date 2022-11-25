@@ -1,10 +1,11 @@
+from collections.abc import Iterable
 from math import atan2, degrees
 
 
 Point = tuple[float, float]
 
 
-def all_equal(iterable) -> bool:
+def all_equal(iterable: Iterable[object]) -> bool:
     iterator = iter(iterable)
     try:
         first = next(iterator)
