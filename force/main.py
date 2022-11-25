@@ -12,7 +12,7 @@ def main() -> None:
         res = reduce(add_force, forces)
         print(res)
     else:
-        draw.setup(args.speed, args.gpp, args.gpp_size, args.thickness)
+        draw.setup(args.speed, args.gpp, args.gpp_size, args.thickness, args.label)
         if args.draw == 'par':
             res = draw.par(forces)
         else:
@@ -50,6 +50,10 @@ def parse_args() -> Namespace:
         '-t', '--thickness',
         type=float,
         default=1
+    )
+    parser.add_argument(
+        '-l', '--label',
+        action='store_true'
     )
     parser.add_argument(
         '-g', '--gpp',
