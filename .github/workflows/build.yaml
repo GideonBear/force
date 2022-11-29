@@ -35,17 +35,18 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        - os: windows-latest
-          CMD_BUILD: pyinstaller -F force
-          OUT_FILE_NAME: clipster.exe
-          ASSET_MIME: application/vnd.microsoft.portable-executable
-        #- os: macos-latest
-        #  CMD_BUILD: >
-        #      pyinstaller -F -w -n clipster -i resources/clipster.icns cli.py &&
-        #      cd dist/ &&
-        #      zip -r9 clipster clipster.app/
-        #  OUT_FILE_NAME: clipster.zip
-        #  ASSET_MIME: application/zip
+        include:
+          - os: windows-latest
+            CMD_BUILD: pyinstaller -F force
+            OUT_FILE_NAME: clipster.exe
+            ASSET_MIME: application/vnd.microsoft.portable-executable
+          #- os: macos-latest
+          #  CMD_BUILD: >
+          #      pyinstaller -F -w -n clipster -i resources/clipster.icns cli.py &&
+          #      cd dist/ &&
+          #      zip -r9 clipster clipster.app/
+          #  OUT_FILE_NAME: clipster.zip
+          #  ASSET_MIME: application/zip
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
