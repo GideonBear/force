@@ -54,7 +54,7 @@ jobs:
         with:
           python-version: 3.10
 
-      - run: pip install -U pip setuptools wheel && pip install -Ur requirements.txt
+      - run: pip install -U pip setuptools wheel && pip install -Ur requirements.txt pyinstaller
       - run: ${{matrix.CMD_BUILD}}
       - name: Load Release URL File from release job
         uses: actions/download-artifact@v1
