@@ -5,6 +5,7 @@ on:
     tags:
       - 'v*'
 
+
 jobs:
 
   createrelease:
@@ -35,7 +36,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest]  # macos-latest, ubuntu-latest]
         include:
           - os: windows-latest
             CMD_BUILD: pyinstaller -F force
