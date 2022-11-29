@@ -38,7 +38,7 @@ jobs:
         include:
           - os: windows-latest
             CMD_BUILD: pyinstaller -F force
-            OUT_FILE_NAME: clipster.exe
+            OUT_FILE_NAME: force.exe
             ASSET_MIME: application/vnd.microsoft.portable-executable
           #- os: macos-latest
           #  CMD_BUILD: >
