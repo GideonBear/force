@@ -38,11 +38,11 @@ jobs:
       matrix:
         include:
           - os: windows-latest
-            CMD_BUILD: pyinstaller --onefile --name force force/__main__.py
+            CMD_BUILD: pyinstaller --onefile --name force .github/workflows/main.py
             OUT_FILE_NAME: force.exe
             ASSET_MIME: application/vnd.microsoft.portable-executable
           - os: ubuntu-20.04  # glibc version
-            CMD_BUILD: pyinstaller --onefile --name force force/__main__.py
+            CMD_BUILD: pyinstaller --onefile --name force .github/workflows/main.py
             OUT_FILE_NAME: force
             ASSET_MIME: application/x-elf
           #- os: macos-latest
