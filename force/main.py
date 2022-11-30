@@ -12,7 +12,9 @@ def main() -> None:
         res = reduce(add_force, forces)
         print(res)
     else:
-        draw.setup(args.speed, args.gpp, args.gpp_size, args.thickness, args.label)
+        if args.label:
+            print('Labels not supported yet')
+        draw.setup(args.speed, args.gpp, args.gpp_size, args.thickness)
         if args.draw == 'par':
             res = draw.par(forces)
         else:
