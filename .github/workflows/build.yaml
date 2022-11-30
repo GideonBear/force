@@ -38,7 +38,7 @@ jobs:
       matrix:
         include:
           - os: windows-latest
-            CMD_BUILD: pyinstaller -F force
+            CMD_BUILD: pyinstaller --onefile --name force force/__main__.py
             OUT_FILE_NAME: force.exe
             ASSET_MIME: application/vnd.microsoft.portable-executable
           #- os: macos-latest
