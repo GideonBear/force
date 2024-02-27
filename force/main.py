@@ -1,5 +1,4 @@
 from argparse import ArgumentParser, Namespace
-from functools import reduce
 
 from . import draw
 from .force import Force, add_force
@@ -8,19 +7,16 @@ from .force import Force, add_force
 def main() -> None:
     args = parse_args()
     forces = [Force(*force) for force in args.force]
-    if args.calculate:
-        res = reduce(add_force, forces)
-        print(res)
+    if args.label:
+        print('Labels not supported yet')
+    draw.setup(args.speed, args.gpp, args.gpp_size, args.thickness, False)
+    if args.par:
+        res = draw.par(forces)
     else:
-        if args.label:
-            print('Labels not supported yet')
-        draw.setup(args.speed, args.gpp, args.gpp_size, args.thickness)
-        if args.draw == 'par':
-            res = draw.par(forces)
-        else:
-            res = draw.htt(forces)
-        print(res)
-        draw.shutdown()
+        assert args.htt
+        res = draw.htt(forces)
+    print(res)
+    draw.shutdown()
 
 
 def parse_args() -> Namespace:
@@ -36,12 +32,14 @@ def parse_args() -> Namespace:
 
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument(
-        '-c', '--calculate',
-        action='store_true'
+        "-p",
+        "--par",
+        action="store_true",
     )
     group.add_argument(
-        '-d', '--draw',
-        choices=('par', 'htt')
+        "-d",
+        "--htt",
+        action="store_true",
     )
     parser.add_argument(
         '-s', '--speed',
